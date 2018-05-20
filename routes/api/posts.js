@@ -129,7 +129,7 @@ router.post(
 // @access Pravite
 
 router.post(
-  "/comment/:id(post_id)",
+  "/comment/:post_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validatePostInput(req.body);
@@ -140,7 +140,7 @@ router.post(
       return res.status(400).json(errors);
     }
 
-    Post.findById(req.params.id)
+    Post.findById(req.params.post_id)
       .then(post => {
         const newComment = {
           text: req.body.text,
