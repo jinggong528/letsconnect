@@ -57,7 +57,7 @@ class ProfileGithub extends Component {
     return (
       <div>
         <hr />
-        <h3 className="mb-4">Latest Github Repos</h3>
+        <h3 className="badge badge-success">Github Repos Disabled By Owner</h3>
         {/* {repoItems} */}
       </div>
     );
