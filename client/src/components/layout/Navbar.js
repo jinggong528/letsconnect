@@ -61,6 +61,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-info mb-4">
         <div className="container">
+          <i className="fas fa-heart" />
           <Link className="navbar-brand" to="/">
             LetsConnect
           </Link>

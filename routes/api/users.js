@@ -35,8 +35,8 @@ router.post("/register", (req, res) => {
     } else {
       const avatar = gravatar.url(req.body.email, {
         s: "200", // Size
-        r: "pg", //rate
-        d: "mm" //Default
+        r: "pg", //rating
+        d: "mm" //Default, show a pic if user dont have gravatar
       });
 
       const newUser = new User({
@@ -91,7 +91,7 @@ router.post("/login", (req, res) => {
         jwt.sign(
           payload,
           keys.secretOrKey,
-          { expiresIn: 3600 },
+          { expiresIn: 7200 },
           (err, token) => {
             res.json({
               success: true,

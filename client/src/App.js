@@ -25,7 +25,7 @@ import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
 import NotFound from "./components/not-found/NotFound";
 import "./App.css";
-
+import HelloWorld from "./components/HelloWorld";
 import { logoutUser } from "./actions/authActions";
 
 //Check for token
@@ -63,6 +63,13 @@ class App extends Component {
               <Route exact path="/profile/:handle" component={Profile} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/hello-world"
+                  component={HelloWorld}
+                />
               </Switch>
               <Switch>
                 <PrivateRoute

@@ -98,7 +98,7 @@ router.get("/user/:user_id", (req, res) => {
 });
 
 // @route POST api/profile
-// @desc Create users profile
+// @desc Create/Edit users profile
 // @access Private
 
 router.post(
@@ -140,19 +140,19 @@ router.post(
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
-        //Update
+        //Update profile
         Profile.findOneAndUpdate(
           { user: req.user.id },
           { $set: profileFields },
           { new: true }
         ).then(profile => res.json(profile));
       } else {
-        // Create
+        // Create Profile
 
-        // Check if handle exists
+        // Check if handle someone already used
         Profile.findOne({ handle: profileFields.handle }).then(profile => {
           if (profile) {
-            errors.handle = "That handle already exists";
+            errors.handle = "That handle someone already used";
             res.status(400).json(errors);
           }
 
